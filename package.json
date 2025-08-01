@@ -1,12 +1,12 @@
 {
   "name": "multi-theme-switcher-app",
   "version": "1.0.0",
-  "homepage": "https://attitudeprince143.github.io/Unified_Mentor/Multi-Theme-Switcher-App/",
+  "homepage": "https://attitudeprince143.github.io/Multi_Theme_App/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "deploy": "vite build && gh-pages -d dist --repo=https://github.com/AttitudePrince143/Unified_Mentor.git --branch=gh-pages --dest Multi-Theme-Switcher-App"
+    "deploy": "vite build && gh-pages -d dist --repo=https://github.com/AttitudePrince143/Unified_Mentor.git --branch=gh-pages --dest Multi_Theme_App"
   },
   "dependencies": {
     "framer-motion": "^12.23.12",
