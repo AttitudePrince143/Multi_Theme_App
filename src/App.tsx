@@ -10,7 +10,7 @@ import { themes } from './theme/themes';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 
-// Page transition wrapper using Framer Motion
+// Animate page transitions
 function PageTransitionWrapper({ children }: { children: React.ReactNode }) {
   return (
     <motion.div
@@ -38,8 +38,12 @@ function AppContent() {
     >
       {isSidebar ? (
         <>
-          {/* Toggle button only on small screens */}
-          <button className="md:hidden p-4" onClick={() => setShowMobileSidebar(true)}>
+          {/* Mobile toggle button */}
+          <button
+            className="md:hidden p-4 text-2xl"
+            onClick={() => setShowMobileSidebar(true)}
+            aria-label="Open sidebar"
+          >
             ☰
           </button>
 
@@ -48,11 +52,10 @@ function AppContent() {
             <Sidebar />
           </div>
 
-          {/* Mobile sidebar with animation */}
+          {/* Sidebar for mobile with overlay */}
           <AnimatePresence>
             {showMobileSidebar && (
               <>
-                {/* Dark overlay */}
                 <motion.div
                   className="fixed inset-0 bg-black/50 z-40"
                   initial={{ opacity: 0 }}
@@ -60,7 +63,6 @@ function AppContent() {
                   exit={{ opacity: 0 }}
                   onClick={() => setShowMobileSidebar(false)}
                 />
-                {/* Sidebar slide in */}
                 <motion.div
                   className="fixed top-0 left-0 w-64 h-full bg-gray-800 z-50"
                   initial={{ x: '-100%' }}
@@ -78,6 +80,7 @@ function AppContent() {
         <Header />
       )}
 
+      {/* Main content area */}
       <main className={`${isSidebar ? 'md:ml-64 p-4 pt-6' : 'pt-24 px-4'} flex-grow`}>
         <AnimatePresence mode="wait">
           <Routes location={location} key={location.pathname}>
@@ -88,6 +91,7 @@ function AppContent() {
         </AnimatePresence>
       </main>
 
+      {/* Footer only visible when header is shown (non-sidebar theme) */}
       {!isSidebar && <Footer />}
     </div>
   );

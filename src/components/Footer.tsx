@@ -6,7 +6,10 @@ export const Footer = () => {
   const currentTheme = themes[theme];
 
   return (
-    <footer className={`p-4 text-center ${currentTheme.footer}`}>
+    <footer
+      className={`p-4 text-center transition-all duration-500 
+      ${currentTheme.footer} ${currentTheme.text} ${currentTheme.font}`}
+    >
       <p>&copy; 2025 Multi-Theme App. All rights reserved.</p>
     </footer>
   );

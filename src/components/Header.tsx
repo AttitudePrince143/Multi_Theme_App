@@ -8,29 +8,42 @@ export const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 w-full p-4 shadow-md z-50 flex flex-col md:flex-row items-center gap-4 ${currentTheme.header} ${currentTheme.headerStyle}`}
+      className={`fixed top-0 w-full px-4 py-3 shadow-md z-50
+      bg-white md:flex md:items-center md:justify-between
+      ${currentTheme.header} ${currentTheme.headerStyle} ${currentTheme.text} ${currentTheme.font} transition-all duration-500`}
     >
-      <div className={`text-xl ${currentTheme.headerTextStyle}`}>
-        Multi-Theme App
+      <div className="flex justify-between items-center w-full md:w-auto">
+        {/* Brand Title */}
+        <div className={`text-xl ${currentTheme.headerTextStyle}`}>
+          Multi-Theme App
+        </div>
+
+        {/* Responsive collapse (only on mobile) */}
+        <div className="md:hidden">
+          {/* Optional: You can add a hamburger menu here */}
+        </div>
       </div>
 
-      <nav className={`flex gap-4 ${currentTheme.headerTextStyle}`}>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/contact">Contact</Link>
-      </nav>
+      {/* Navigation and Theme Select */}
+      <div className="mt-3 md:mt-0 flex flex-col md:flex-row md:items-center md:gap-6 gap-3">
+        <nav className="flex flex-col md:flex-row gap-2 md:gap-6 text-sm md:text-base text-center md:text-left">
+          <Link to="/" className="hover:underline">Home</Link>
+          <Link to="/about" className="hover:underline">About</Link>
+          <Link to="/contact" className="hover:underline">Contact</Link>
+        </nav>
 
-      <select
-        value={theme}
-        onChange={(e) => setTheme(e.target.value as any)}
-        className="p-2 rounded border"
-      >
-        {Object.keys(themes).map((key) => (
-          <option key={key} value={key}>
-            {key.toUpperCase()}
-          </option>
-        ))}
-      </select>
+        <select
+          value={theme}
+          onChange={(e) => setTheme(e.target.value as any)}
+          className="p-2 rounded border bg-white text-black w-full md:w-auto"
+        >
+          {Object.keys(themes).map((key) => (
+            <option key={key} value={key}>
+              {key.toUpperCase()}
+            </option>
+          ))}
+        </select>
+      </div>
     </header>
   );
 };
