@@ -1,3 +1,5 @@
+// App.tsx
+
 import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { Header } from './components/Header';
 import { Sidebar } from './components/Sidebar';
@@ -10,6 +12,8 @@ import { themes } from './theme/themes';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 
+
+// Wrapper for page transitions
 // Animate page transitions
 function PageTransitionWrapper({ children }: { children: React.ReactNode }) {
   return (
@@ -24,6 +28,8 @@ function PageTransitionWrapper({ children }: { children: React.ReactNode }) {
   );
 }
 
+
+// Main application content that handles routing, layout, and theming
 function AppContent() {
   const { theme } = useTheme();
   const currentTheme = themes[theme];

@@ -1,3 +1,5 @@
+
+// Define all available theme keys
 export type Theme = {
   name: string;
   background: string;
@@ -10,8 +12,10 @@ export type Theme = {
   headerTextStyle: string;
   paragraphStyle: string;
 };
-
+// Theme style object
 export const themes: Record<string, Theme> = {
+
+  // Theme 1: Light + Clean UI
   theme1: {
     name: 'theme1',
     background: 'bg-gray-50',
@@ -25,6 +29,8 @@ export const themes: Record<string, Theme> = {
     paragraphStyle: 'text-base leading-relaxed text-gray-800',
   },
 
+
+  // Theme 2: Dark + Sidebar Layout
   theme2: {
     name: 'theme2',
     background: 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-700',
@@ -38,6 +44,8 @@ export const themes: Record<string, Theme> = {
     paragraphStyle: 'text-lg leading-loose italic text-gray-300 tracking-wide',
   },
 
+
+  // Theme 3: Playful + Colorful
   theme3: {
     name: 'theme3',
     background: 'bg-gradient-to-r from-yellow-200 via-pink-200 to-pink-300',

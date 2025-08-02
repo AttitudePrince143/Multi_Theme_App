@@ -1,13 +1,18 @@
+// Card.tsx
 import React from 'react';
 import { useTheme } from '../theme/ThemeContext';
 import { themes } from '../theme/themes';
 
+
+// Props for reusable Card component
 interface CardProps {
   title: string;
   description: string;
   image: string;
 }
 
+
+// Card component used to display product info with dynamic theme styling
 export const Card: React.FC<CardProps> = ({ title, description, image }) => {
   const { theme } = useTheme();
   const currentTheme = themes[theme];

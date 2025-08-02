@@ -1,7 +1,11 @@
+// Header.tsx
+
 import { useTheme } from '../theme/ThemeContext';
 import { themes } from '../theme/themes';
 import { Link } from 'react-router-dom';
 
+
+// Fixed top header with theme dropdown and navigation links
 export const Header = () => {
   const { theme, setTheme } = useTheme();
   const currentTheme = themes[theme];
@@ -32,6 +36,8 @@ export const Header = () => {
           <Link to="/contact" className="hover:underline">Contact</Link>
         </nav>
 
+
+       {/* Theme Dropdown */}
         <select
           value={theme}
           onChange={(e) => setTheme(e.target.value as any)}

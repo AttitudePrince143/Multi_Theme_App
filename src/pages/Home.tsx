@@ -17,6 +17,8 @@ export const Home = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
 
+
+   // Shuffle utility for randomizing product order
   const shuffleArray = (array: Product[]) => {
     return array
       .map((value) => ({ value, sort: Math.random() }))
@@ -24,6 +26,9 @@ export const Home = () => {
       .map(({ value }) => value);
   };
 
+
+
+  // Fetch products from fakestoreapi
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
       .then((res) => res.json())
@@ -32,6 +37,8 @@ export const Home = () => {
       .finally(() => setLoading(false));
   }, []);
 
+
+  // Reshuffle products when theme changes
   useEffect(() => {
     setProducts((prev) => shuffleArray([...prev]));
   }, [theme]);
@@ -62,6 +69,8 @@ export const Home = () => {
         Explore Products
       </button>
 
+
+  {/* Featured products */}
       <section id="product-section">
   <h3 className="text-2xl font-semibold mb-4 text-center sm:text-left">Featured Products</h3>
 

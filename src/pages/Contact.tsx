@@ -2,6 +2,8 @@ export const Contact = () => {
   return (
     <main className="mt-24 px-4 max-w-xl mx-auto">
       <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
+
+       {/* Simple dummy form, not functional */}
       <form className="bg-white dark:bg-gray-800 p-6 rounded shadow space-y-4">
         <div>
           <label htmlFor="name" className="block font-semibold mb-1">

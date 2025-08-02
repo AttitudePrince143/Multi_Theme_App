@@ -1,3 +1,5 @@
+// Sidebar.tsx
+
 import { useTheme } from '../theme/ThemeContext';
 import { motion } from 'framer-motion';
 import React from 'react';
@@ -6,6 +8,8 @@ interface SidebarProps {
   onClose?: () => void;
 }
 
+
+// Sidebar component used for Theme 2 with navigation and theme switch
 export function Sidebar({ onClose }: SidebarProps) {
   const { theme, setTheme } = useTheme();
 
